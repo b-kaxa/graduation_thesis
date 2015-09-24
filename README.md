@@ -1,6 +1,6 @@
 # graduation_thesis
 
-### processing is dead :heart:
+### Arduino is dead :heart:
 
 ## 教材
 - [ ] if
