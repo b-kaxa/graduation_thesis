@@ -25,8 +25,6 @@ void draw() {
     rotate(PI/4);
 
 
-
-
     // 縦の長方形設置
     fill(255,255,255);
     noStroke();
