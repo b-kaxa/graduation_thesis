@@ -13,7 +13,7 @@ void draw() {
     view_init();
     create_rects();
 
-    // 動く円設置
+    // 円を動かす
     if (round_y < 0) {
         round_y += 1;
     }
