@@ -1,5 +1,7 @@
 int round_x;
 int round_y;
+float round_color_r = random(0, 255);
+float round_color_b = random(0, 255);
 
 void setup() {
     size(700,700);
@@ -20,17 +22,25 @@ void draw() {
 
     // 分岐点まで来た時の処理
     if (0 <= round_y) {
-        round_x += 1;
         round_y += 1;
+        if (100 <= round_color_r) {
+            round_x -= 1;
+        } else {
+            round_x += 1;
+        }
     }
 
-    fill(0,0,255);
+    // round_color = random(0, 255);
+
+    fill(round_color_r,0,round_color_b);
     ellipse(round_x,round_y,100,100);
 
     // 円が画面外に出た時、初期化
-    if (width / 1.6 < round_x) {
+    if (width / 1.6 < round_x || round_x < -(width / 1.6)) {
         round_x = 0;
         round_y = -350;
+        round_color_r = random(0, 255);
+        round_color_b = random(0, 255);
     }
 }
 
