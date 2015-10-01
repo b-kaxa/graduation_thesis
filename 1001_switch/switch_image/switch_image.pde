@@ -1,10 +1,30 @@
+int round_x;
+int round_y;
+
 void setup() {
     size(700,700);
+
+    round_x = 0;
+    round_y = -350;
 }
 
 void draw() {
     view_init();
     create_rects();
+
+    // 円を動かす
+    if (round_y < 0) {
+        round_y += 1;
+    }
+
+    // 分岐点まで来た時の処理
+    if (0 <= round_y) {
+        round_y += 0;
+        round_x -= 0;
+    }
+
+    fill(0,0,0);
+    ellipse(round_x,round_y,65,65);
 
 }
 
