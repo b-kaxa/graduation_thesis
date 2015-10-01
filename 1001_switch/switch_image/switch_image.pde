@@ -19,12 +19,22 @@ void draw() {
 
     // 分岐点まで来た時の処理
     if (0 <= round_y) {
-        round_y += 0;
-        round_x -= 0;
+        round_x -= 1;
+    }
+
+    if (round_x < -260) {
+        round_x = -260;
+        round_y += 1;
     }
 
     fill(0,0,0);
     ellipse(round_x,round_y,65,65);
+
+    // 円が画面外に出た時、初期化
+    if (height / 1.6 < round_y) {
+        round_x = 0;
+        round_y = -350;
+    }
 
 }
 
