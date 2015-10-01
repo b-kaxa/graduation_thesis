@@ -3,7 +3,7 @@
 ### Arduino is dead :heart:
 
 ## 教材
-- [ ] if
+- [x] if
 - [ ] switch
 - [ ] loop
 
