@@ -1,8 +1,10 @@
 int round_x;
 int round_y;
+float branch_num = random(0, 4);
 
 void setup() {
     size(700,700);
+    println(ceil(branch_num));
 
     round_x = 0;
     round_y = -350;
@@ -19,12 +21,20 @@ void draw() {
 
     // 分岐点まで来た時の処理
     if (0 <= round_y) {
-        round_x -= 1;
-    }
-
-    if (round_x < -260) {
-        round_x = -260;
-        round_y += 1;
+        switch (ceil(branch_num)) {
+            case 1:
+                route_left(-260);
+                break;
+            case 2:
+                route_left(-90);
+                break;
+            case 3:
+                route_right(90);
+                break;
+            case 4:
+                route_right(260);
+                break;
+        }
     }
 
     fill(0,0,0);
@@ -34,13 +44,15 @@ void draw() {
     if (height / 1.6 < round_y) {
         round_x = 0;
         round_y = -350;
+        branch_num = random(0, 4);
+        println(ceil(branch_num));
     }
 
 }
 
 void view_init() {
     // 背景色rgb
-    background(255, 218, 185);
+    background(210, 180, 140);
 
     // 座標軸を中央に変更
     translate(width/2, height/2);
@@ -67,4 +79,22 @@ void create_rects() {
     // 4本目
     rect(260, 210, 80, 500);
 
+}
+
+void route_left(int x) {
+    round_x--;
+
+    if (round_x <= x) {
+        round_x = x;
+        round_y++;
+    }
+}
+
+void route_right(int x) {
+    round_x++;
+
+    if (x <= round_x) {
+        round_x = x;
+        round_y++;
+    }
 }
