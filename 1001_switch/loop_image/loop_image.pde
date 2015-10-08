@@ -20,12 +20,8 @@ void draw() {
 
     // 分岐点まで来た時の処理
     if (0 <= round_y) {
-        round_x -= 1;
-    }
-
-    if (round_x < -260) {
-        round_x = -260;
-        round_y += 1;
+        round_x -= 0;
+        round_y -= 0;
     }
 
     fill(0,0,0);
@@ -59,6 +55,8 @@ void create_rects() {
 
 void create_loop_road() {
     fill(255,255,255);
-    ellipse(-160,35,400,400);
+    ellipse(-160,0,400,400);
 
+    fill(255, 218, 185);
+    ellipse(-160,0,230,230);
 }

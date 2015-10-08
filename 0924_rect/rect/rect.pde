@@ -23,7 +23,7 @@ void draw() {
     // 分岐点まで来た時の処理
     if (0 <= round_y) {
         round_y += 1;
-        if (100 <= round_color_r) {
+        if (128 <= round_color_r) {
             round_x -= 1;
         } else {
             round_x += 1;
