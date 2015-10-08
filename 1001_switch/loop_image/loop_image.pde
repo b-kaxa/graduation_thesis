@@ -1,10 +1,12 @@
 int round_x;
 int round_y;
+float dr = 0;
 
 void setup() {
     size(800,700);
 
-    round_x = 0;
+    // 円の初期座標
+    round_x = 160;
     round_y = -350;
 }
 
@@ -22,6 +24,8 @@ void draw() {
     if (0 <= round_y) {
         round_x -= 0;
         round_y -= 0;
+        rotate(radians(dr));
+        dr += 0.5;
     }
 
     fill(0,0,0);
@@ -40,7 +44,7 @@ void view_init() {
     background(255, 218, 185);
 
     // 座標軸を中央に変更
-    translate(width/2, height/2);
+    translate(width/2 - 160, height/2);
 
     // 図形の座標軸を中央に変更
     rectMode(CENTER);
@@ -50,13 +54,14 @@ void create_rects() {
     // 縦の長方形設置
     fill(255,255,255);
     noStroke();
-    rect(0, 0, 80, 700);
+    rect(160, 0, 80, 700);
 }
 
 void create_loop_road() {
+    // 円の道を作る
     fill(255,255,255);
-    ellipse(-160,0,400,400);
+    ellipse(0,0,400,400);
 
     fill(255, 218, 185);
-    ellipse(-160,0,230,230);
+    ellipse(0,0,230,230);
 }
