@@ -1,13 +1,16 @@
-int round_x;
-int round_y;
+// 円の初期座標
+int round_x = 0;
+int round_y = -350;
+
+// 分岐判定
 float branch_num = random(0, 4);
 
-void setup() {
-    size(700,700);
-    println(ceil(branch_num));
+//円の動作スピード
+float round_speed = 15;
 
-    round_x = 0;
-    round_y = -350;
+void setup() {
+    // 画面サイズ
+    size(700,700);
 }
 
 void draw() {
@@ -16,7 +19,7 @@ void draw() {
 
     // 円を動かす
     if (round_y < 0) {
-        round_y += 1;
+        round_y += round_speed;
     }
 
     // 分岐点まで来た時の処理
@@ -62,9 +65,10 @@ void view_init() {
 }
 
 void create_rects() {
-    // 縦の長方形設置
     fill(255,255,255);
     noStroke();
+
+    // 縦の長方形
     rect(0, -170, 80, 380);
 
     // 横の長方形
@@ -79,22 +83,27 @@ void create_rects() {
     // 4本目
     rect(260, 210, 80, 500);
 
+    // 分岐の数字の表示
+    fill(255);
+    textSize(64);
+    text(ceil(branch_num), 150, -150);
+
 }
 
 void route_left(int x) {
-    round_x--;
+    round_x -= round_speed;
 
     if (round_x <= x) {
         round_x = x;
-        round_y++;
+        round_y += round_speed;
     }
 }
 
 void route_right(int x) {
-    round_x++;
+    round_x += round_speed;
 
     if (x <= round_x) {
         round_x = x;
-        round_y++;
+        round_y += round_speed;
     }
 }
