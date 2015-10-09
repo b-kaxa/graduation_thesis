@@ -1,13 +1,12 @@
-int round_x;
-int round_y;
+int round_x = 160;
+int round_y = -350;
+
+float round_speed = 5.0;
+float loop_speed;
 float dr = 0;
 
 void setup() {
     size(800,700);
-
-    // 円の初期座標
-    round_x = 160;
-    round_y = -350;
 }
 
 void draw() {
@@ -17,7 +16,7 @@ void draw() {
 
     // 円を動かす
     if (round_y < 0) {
-        round_y += 1;
+        round_y += round_speed;
     }
 
     // 分岐点まで来た時の処理
@@ -25,18 +24,15 @@ void draw() {
         round_x -= 0;
         round_y -= 0;
         rotate(radians(dr));
-        dr += 0.5;
+
+        loop_speed = (round_speed / 2);
+        dr += loop_speed;
     }
 
     fill(0,0,0);
     ellipse(round_x,round_y,65,65);
 
-    // 円が画面外に出た時、初期化
-    if (height / 1.6 < round_y) {
-        round_x = 0;
-        round_y = -350;
-    }
-
+    round_init();
 }
 
 void view_init() {
@@ -64,4 +60,12 @@ void create_loop_road() {
 
     fill(255, 218, 185);
     ellipse(0,0,230,230);
+}
+
+void round_init() {
+    // 円が画面外に出た時、初期化
+    if (height / 1.6 < round_y) {
+        round_x = 0;
+        round_y = -350;
+    }
 }
