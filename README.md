@@ -1,11 +1,9 @@
 # graduation_thesis
 
-### Arduino is dead :heart:
-
 ## 教材
 - [x] if
 - [x] switch
-- [ ] loop
+- [x] loop
 
 ## テスト
 - [x] 内容を考える
