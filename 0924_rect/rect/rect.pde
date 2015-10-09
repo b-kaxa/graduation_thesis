@@ -2,8 +2,7 @@
 int round_x = 0;
 int round_y = -350;
 
-float round_color_r = random(0, 255);
-float round_color_b = random(0, 255);
+float round_color = random(0, 2);
 int round_speed = 3;
 
 void setup() {
@@ -18,7 +17,7 @@ void draw() {
     // 分岐点まで来た時の処理
     if (0 <= round_y) {
         round_y += round_speed;
-        if (128 <= round_color_r) {
+        if (ceil(round_color) == 2) {
             round_x -= round_speed;
         } else {
             round_x += round_speed;
@@ -71,7 +70,11 @@ void round_down() {
 
 void create_round() {
     // 円を描写する
-    fill(round_color_r,255,0);
+    if (ceil(round_color) == 2) {
+        fill(255,100,100);
+    } else {
+        fill(100,100,255);
+    }
     ellipse(round_x,round_y,100,100);
 }
 
@@ -80,7 +83,6 @@ void round_init() {
     if (width / 1.6 < round_x || round_x < -(width / 1.6)) {
         round_x = 0;
         round_y = -350;
-        round_color_r = random(0, 255);
-        round_color_b = random(0, 255);
+        round_color = random(0, 2);
     }
 }
