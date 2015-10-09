@@ -43,14 +43,7 @@ void draw() {
     fill(0,0,0);
     ellipse(round_x,round_y,65,65);
 
-    // 円が画面外に出た時、初期化
-    if (height / 1.6 < round_y) {
-        round_x = 0;
-        round_y = -350;
-        branch_num = random(0, 4);
-        println(ceil(branch_num));
-    }
-
+    round_init();
 }
 
 void view_init() {
@@ -105,5 +98,15 @@ void route_right(int x) {
     if (x <= round_x) {
         round_x = x;
         round_y += round_speed;
+    }
+}
+
+void round_init() {
+    // 円が画面外に出た時、初期化
+    if (width / 1.6 < round_x || round_x < -(width / 1.6)) {
+        round_x = 0;
+        round_y = -350;
+        round_color_r = random(0, 255);
+        round_color_b = random(0, 255);
     }
 }
