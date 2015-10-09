@@ -1,15 +1,13 @@
-int round_x;
-int round_y;
+// 円の初期座標
+int round_x = 0;
+int round_y = -350;
+
 float round_color_r = random(0, 255);
 float round_color_b = random(0, 255);
-int round_speed = 2;
+int round_speed = 3;
 
 void setup() {
     size(700,700);
-    frameRate(60);
-
-    round_x = 0;
-    round_y = -350;
 }
 
 void draw() {
