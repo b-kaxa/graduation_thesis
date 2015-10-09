@@ -37,7 +37,7 @@ void draw() {
 
 void view_init() {
     // 背景色rgb
-    background(255, 218, 185);
+    background(210, 180, 140);
 
     // 座標軸を中央に変更
     translate(width/2 - 160, height/2);
@@ -58,7 +58,7 @@ void create_loop_road() {
     fill(255,255,255);
     ellipse(0,0,400,400);
 
-    fill(255, 218, 185);
+    fill(210, 180, 140);
     ellipse(0,0,230,230);
 }
 
