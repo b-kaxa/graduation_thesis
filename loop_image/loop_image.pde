@@ -25,11 +25,18 @@ void draw() {
         round_y -= 0;
         rotate(radians(dr));
 
+        if (360 <= dr) {
+            dr = 0;
+        }
         loop_speed = (round_speed / 2);
         dr += loop_speed;
     }
 
-    fill(0,0,0);
+    if (180 <= dr) {
+        fill(150,255,127);
+    } else {
+        fill(0,0,0);
+    }
     ellipse(round_x,round_y,65,65);
 
     round_init();
@@ -51,6 +58,9 @@ void create_rects() {
     fill(255,255,255);
     noStroke();
     rect(160, 0, 80, 700);
+
+    fill(150,255,127);
+    rect(-50,0,450,25);
 }
 
 void create_loop_road() {
