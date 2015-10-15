@@ -1,7 +1,7 @@
 # graduation_thesis
 
 ## 教材
-- [ ] example
+- [x] example
 - [x] if
 - [x] switch
 - [x] loop
