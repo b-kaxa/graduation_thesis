@@ -17,9 +17,9 @@ void draw() {
     view_init();
     create_rects();
 
-    if (round_y >= -100 && 0 < round_y) {
-        delay(1000);
-    }
+    // if (round_y >= -100 && 0 < round_y) {
+    //     delay(1000);
+    // }
 
     // 円を動かす
     if (round_y < 0) {
